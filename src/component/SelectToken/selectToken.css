@@ -1,0 +1,14 @@
+.TokenSelect{
+    width: 200px;
+    margin-left: 30px;
+    /* height: 30px; */
+    border-radius: 50px;
+    outline: none;
+    border: 2px solid #cccccc;
+    padding: 4px;
+    margin-bottom: 16px;
+}
+.TokenSelect option{
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+}

@@ -1,0 +1,17 @@
+.WelcomeAndLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:40px;
+}
+.messageext5{
+    margin: 20px 0 20px 0;
+    display: flex;
+    justify-content: center;
+}
+.cAccount{
+    font-weight: 900;
+    color: cornflowerblue;
+    margin-left: 8px;
+    cursor: pointer;
+}

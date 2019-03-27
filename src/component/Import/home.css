@@ -1,0 +1,67 @@
+/* .appcss {
+    padding-top: 15px;
+    padding-left:23px;
+    padding-right:23px;
+}
+
+#import_buttonBack{
+    float: right;
+    background-color: #565254;
+    border: white;
+    cursor:pointer;
+    overflow: hidden;
+    outline:black;
+    color: white;
+}
+
+
+
+#buttonBack {
+    background-color: #565254;
+    border: white;
+    cursor:pointer;
+    overflow: hidden;
+    outline:black;
+    color: white;
+} */
+
+
+
+
+.HomeParent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 44px;
+    min-height: 500px;
+    padding: 54px 10px 10px;
+}
+
+.customHomeImport{
+    cursor: pointer;
+    color: cornflowerblue;
+}
+.textandSave{
+    display: flex;
+    margin-right: 10px;
+}
+.customPassBtn{
+    width: 100%;
+    margin-top: 12px;
+    background-color: #1b2443;
+    border-radius: 0;
+    border: 0;
+}
+.customPassBtn:focus,.customPassBtn:hover,.customPassBtn:active{
+    background-color: #1b2443;
+    border:0;
+}
+.customPassBtn[disabled]:hover{
+    background-color: #1b2443;
+}
+.nextSvg{
+    width: 36px;
+}
+.registerParent{
+    text-align: center;
+}

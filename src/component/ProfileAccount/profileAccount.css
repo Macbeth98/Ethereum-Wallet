@@ -1,0 +1,10 @@
+.profileImage{
+    width: 36px;
+    height: 36px;
+    background-color: #172444;
+    border-radius: 100px;
+    margin-left: 20px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 999999;
+}

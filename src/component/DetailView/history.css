@@ -1,0 +1,86 @@
+.history {
+  padding: 12px;
+  height: 278px;
+  border-top: 1px solid #dcdcdc;
+  overflow-y: auto;
+  background-color: #dcdcdc;
+  cursor: pointer;
+}
+.customAmountList {
+  color: black;
+  display: flex;
+  margin-bottom: 12px;
+  box-shadow: 0 0 4px 1px #dcdcdc;
+  background-color: #fff;
+}
+.cstmbdycrd {
+  padding: 12px;
+  background-color: #17244417;
+}
+.numverOverflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.tokenBoxhistory {
+  color: black;
+  display: flex;
+  box-shadow: 0 0 4px 1px #dcdcdc;
+  background-color: #fff;
+  justify-content: space-between;
+  padding: 8px;
+}
+.valuePositioning {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+}
+.confirmedBox {
+  padding: 2px;
+  background-color: #172444;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 4px;
+  color: #fff;
+}
+/* history */
+
+.FromTo {
+  border-radius: 4px;
+  width: 100%;
+  background-color: #172444;
+  padding: 4px;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  height: 24px;
+}
+.Fromone {
+  width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 8px;
+  color: #cacaca;
+}
+.totwo {
+  width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 8px;
+  color: #cacaca;
+}
+.transactionLabel {
+  margin-top: 12px;
+}
+.trnsactionItem {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #dcdcdc;
+  padding: 4px;
+}
+.stylingTimeline {
+  display: flex;
+  padding: 8px;
+  font-size: 12px;
+}

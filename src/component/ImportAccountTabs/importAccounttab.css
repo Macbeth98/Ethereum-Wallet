@@ -1,0 +1,41 @@
+.secondContainerToken{
+    height: 500px;
+    padding: 12px;
+}
+.description{
+    text-align: justify !important;
+    color: #888888;
+}
+.centeringform{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.customSelectForm{
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #888888;
+}
+.customSelectForm:focus{
+    box-shadow: none;
+}
+.cstFormGrp{
+    margin-bottom: 0;
+    width: 84%;
+}
+.btngrp{
+    margin-top: 24px;
+}
+.cancelImpButton{
+    border-radius: 0;
+    margin-left: 28px;
+    float: left;
+    width: 40%;
+}
+.importButton{
+    border-radius: 0;
+    margin-right: 24px;
+    float: right;
+    width: 40%;
+}

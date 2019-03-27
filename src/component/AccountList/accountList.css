@@ -1,0 +1,23 @@
+.AccountList .userAccount{
+    display: flex;
+    transition: all 500ms;
+}
+.AccountList .userAccount img{
+    width: 30px;
+    margin-right: 10px;
+    margin-top: -14px;
+}
+.userName a{
+    text-decoration: none;
+    color: white;
+}
+.AccountList .userAccount:hover{
+    background-color: #172444;
+    padding:4px;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    color: #172444;
+}
+.userAccount{
+    margin:4px;
+}

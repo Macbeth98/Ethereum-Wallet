@@ -1,0 +1,76 @@
+
+.loginParent{
+    text-align: center;
+}
+.NvestForm{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.passwordBox{
+    border: none;
+    border-bottom: 2px solid #cecdcd;
+    border-radius: 0;
+}
+.passwordBox:focus{
+    outline: none;
+    box-shadow: none;
+}
+.customPassBtn{
+    width: 100%;
+    margin-top: 12px;
+    background-color: #1b2443;
+    border-radius: 0;
+    border: 0;
+}
+.customPassBtn:focus,.customPassBtn:hover,.customPassBtn:active{
+    background-color: #1b2443;
+    border:0;
+}
+.customPassBtn[disabled]:hover{
+    background-color: #1b2443;
+}
+
+
+.NvestForm input {
+    min-width: 125px;
+    border-bottom: 2px solid;
+    border-radius: 0;
+    transition: border-color .5s ease-out;
+}
+.NvestForm input:optional {
+    border-bottom-color: #999;
+}
+.NvestForm input:required {
+    border-bottom-color: #66bb6a;
+}
+.NvestForm input:invalid {
+    border-bottom-color: salmon;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid green;
+    -webkit-text-fill-color: green;
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+.restoreAndPharse{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 8px 0;
+}
+.messageext3{
+    color: #737372;
+    font-weight: 900;
+}
+.messageext4{
+    color: #1b2443;
+    font-weight: 900;
+}

@@ -1,0 +1,12 @@
+.Qrcenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tokenValueone{
+    width:228px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border:1px solid #dcdcdc;
+}

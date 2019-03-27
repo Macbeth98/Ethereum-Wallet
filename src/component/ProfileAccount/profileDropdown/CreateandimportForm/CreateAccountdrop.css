@@ -1,0 +1,12 @@
+.listCreation li{
+    font-size: 18px;
+    list-style-type: none;
+    padding: 18px 10px 10px 0;
+}
+.listCreation li a{
+    color: white;
+    text-decoration: none;
+}
+.listCreation li a:hover{
+    color: aqua;
+}

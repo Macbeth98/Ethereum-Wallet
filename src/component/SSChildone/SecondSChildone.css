@@ -1,0 +1,26 @@
+.userAccountSSC{
+    margin-top: -36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 180px;
+    padding: 12px
+}
+.tokenidSSC{
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 4px;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: all 500ms;
+}
+.tokenidSSC:hover{
+    background-color: #fff;
+}
+.tokenidSSC:active{
+    background-color: #172444;
+    color: white
+}

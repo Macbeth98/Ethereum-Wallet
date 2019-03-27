@@ -1,0 +1,33 @@
+.DetailView {
+  padding: 10px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.DetailView1 {
+  padding: 10px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.DetailView .textStyle {
+  font-weight: 900;
+}
+.DetailView .cstmdepoandsndstyle {
+  width: 90px;
+  border-radius: 0;
+}
+
+.DetailView1 .textStyle {
+  font-weight: 900;
+}
+.DetailView1 .cstmdepoandsndstyle {
+  width: 90px;
+  border-radius: 0;
+}

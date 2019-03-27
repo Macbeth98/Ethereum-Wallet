@@ -1,0 +1,19 @@
+.dropDown{
+    width: 330px;
+    height: 500px;
+    background-color:rgba(0,0,0,0.8);
+    position: absolute;
+    right:0;
+    z-index: 4;
+}
+.dropdownMyaccount{
+    display: flex;
+    padding:10px;
+    border-bottom: 1px solid #fff;
+    justify-content: space-between;
+}
+.acountGroup{
+    max-height: 200px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}

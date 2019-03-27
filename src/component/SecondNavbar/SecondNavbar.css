@@ -1,0 +1,48 @@
+.hmbrgmenu{
+    line-height: 40px;
+    font-size: 20px;
+    color: #fff;
+    margin-left: 12px;
+    cursor: pointer;
+}
+.accountNamesecondNavbar{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+}
+.displaySecond{
+    display: flex;
+    justify-content: space-between;
+}
+.textellipses{
+    white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    cursor: pointer;
+}
+.secondNabrside{
+    width: 280px;
+    height: 538px;
+    background-color: #c3c3c3;
+    position: absolute;
+    z-index: 6;
+    margin-top: -46px;
+    transition: all 500ms;
+    margin-left: -281px;
+}
+.secondNabrsidepull{
+    width: 280px;
+    height: 538px;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 6;
+    margin-top: -46px;
+    transition: all 500ms;
+    margin-left: 0px;
+    border-right: 1px solid #dcdcdc;
+    box-shadow: 0 0 50px 1px #afafaf;
+}

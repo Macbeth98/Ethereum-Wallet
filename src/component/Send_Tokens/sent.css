@@ -1,0 +1,55 @@
+.customformInput{
+    border: 0;
+    box-shadow: none;
+    outline: none;
+}
+.customformInput:focus,.customformInput:active{
+    border: 0;
+    box-shadow: none;
+    outline: none;
+}
+.widthSeparation{
+    width: calc(100% / 3);
+    border: 1px solid #fff;
+    padding:4px;
+    overflow: hidden;
+    border-radius: 0;
+    background-color: #3e5ba5;
+    color: #fff;
+}
+.widthSeparation p{
+    font-weight: 900;
+}
+.widthSeparation:active,.widthSeparation:focus{
+    background-color: orange;
+}
+.widthSeparation:hover{
+    background-color: #172444;
+    color: #fff;
+}
+.wellee input{
+    display: none;
+}
+.wellee input:checked + label {
+    background: #172444;
+}
+.custmparag{
+    font-size: 10px;
+    margin: 0px;
+    display: inline-block;
+    width: 63px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+.custmparage{
+    font-size: 10px;
+    margin: 0px;
+    display: inline-block;
+    width: 25px;
+    overflow: hidden;
+    margin: 0;
+}
+#accountValue::placeholder{
+    margin-left: 12px;
+}

@@ -1,0 +1,30 @@
+.registerParent {
+  text-align: center;
+}
+
+.jumbleWord {
+  cursor: pointer;
+  text-align: center;
+}
+
+.headingCW {
+  font-weight: 900;
+  position: relative;
+  top: 10px;
+}
+.nextBack {
+  display: flex;
+  justify-content: center;
+}
+
+.customNextBtn {
+  width: 100%;
+  margin-top: 12px;
+  border-radius: 0;
+}
+.textJumble {
+  background-color: #dcdcdc;
+  padding: 4px;
+  border-radius: 4px;
+  width: 260px;
+}

@@ -1,0 +1,20 @@
+.insertTokenCard{
+    padding:12px;
+    border-bottom: 1px solid #dcdcdc;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+}
+.titleLabel{
+    font-weight: 900;
+}
+.labelJustify{
+    display: flex;
+    justify-content: space-between;
+}
+.tableToken{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    padding-top: 0;
+}
