@@ -21,13 +21,14 @@ class NewDetailView extends Component {
         </div>
       );
     } else {
-      const {token} = this.props;
+      const { token, decimals } = this.props;
       return (
         <div className="DetailView">
           <h4 className="textStyle">{this.props.token.name}</h4>
           <img src={Ethereum} alt="eth" />
           <h4 className="textStyle">
-            {token.decimals.length>0? (this.props.token.amount/(10 ** parseInt(token.decimals))).toFixed(3): token.amount} {this.props.token.symbol}
+            {(this.props.token.amount / 10 ** decimals).toFixed(3)}{" "}
+            {token.symbol}
           </h4>
           <div className="btn-group">
             <Link
@@ -36,7 +37,7 @@ class NewDetailView extends Component {
                 account: this.props.account,
                 name: this.props.name,
                 token: this.props.token,
-                decimals: token.decimals.length>0? parseInt(token.decimals): 0
+                decimals: decimals
               }}
             >
               <button className="btn btn-success cstmdepoandsndstyle">

@@ -2,41 +2,106 @@ import React, { Component } from "react";
 import Ethereum from "../../Image/Ethereum.svg";
 //import { UncontrolledCollapse, CardBody, Card } from "reactstrap";
 import axios from "axios";
-//import web3 from "../Web3/Web3";
+import web3 from "../Web3/Web3";
 import Arrow from "../../Image/arrow.jpg";
 
 class NewHistory extends Component {
   state = {
     token: [],
     address: "",
-    bool: true
+    bool: true,
+    load_status: "Fetching!..."
   };
 
   async componentWillMount() {
-    let res = await axios.get(
-      `https://blockscout.com/eth/mainnet/api?module=account&action=tokentx&address=${
-        this.props.account.address
-      }&contractaddress=${this.props.token.contractAddress}&sort=desc`
-    );
+    // let res = await axios.get(
+    //   `https://blockscout.com/eth/mainnet/api?module=account&action=tokentx&address=${
+    //     this.props.account.address
+    //   }&contractaddress=${this.props.token.contractAddress}&sort=desc`
+    // );
     //console.log(res.data.result);
-    await this.setState({
-      token: res.data.result
+    //
+    let res = await axios({
+      method: "get",
+      url: `https://web3api.io/api/v1/addresses/${
+        this.props.account.address
+      }/token-transfers?address=${this.props.token.address}`,
+      headers: { "x-api-key": "UAKa847d22b077024a71df262511733a446" }
     });
+
+    var txns = [];
+    var tokens = res.data.payload.records;
+    console.log(tokens);
+    if (tokens && tokens.length > 0) {
+      tokens.forEach(async (token, i) => {
+        let txn = await web3.eth.getTransactionReceipt(token.transactionHash);
+        txn.value = token.amount;
+        txn.timeStamp = token.timestamp;
+        console.log(txn.status);
+        txns.push(txn);
+        if (tokens.length === txns.length) {
+          await this.setState({
+            token: txns,
+            load_status: txns.length > 0 ? "" : "No Transfers Found!!!"
+          });
+        }
+      });
+    } else {
+      await this.setState({
+        token: txns,
+        load_status: txns.length > 0 ? "" : "No Transfers Found!!!"
+      });
+    }
     //console.log(this.state.token);
   }
 
   async componentDidUpdate() {
     if (this.state.bool) {
-      let res = await axios.get(
-        `https://blockscout.com/eth/mainnet/api?module=account&action=tokentx&address=${
-          this.props.account.address
-        }&contractaddress=${this.props.token.address}&sort=desc`
-      );
+      // let res = await axios.get(
+      //   `https://blockscout.com/eth/mainnet/api?module=account&action=tokentx&address=${
+      //     this.props.account.address
+      //   }&contractaddress=${this.props.token.address}&sort=desc`
+      // );
       //console.log(res.data.result);
-      await this.setState({
-        token: res.data.result,
-        bool: false
+
+      let res = await axios({
+        method: "get",
+        url: `https://web3api.io/api/v1/addresses/${
+          this.props.account.address
+        }/token-transfers?address=${this.props.token.address}`,
+        headers: { "x-api-key": "UAKa847d22b077024a71df262511733a446" }
       });
+
+      var txns = [];
+      var tokens = res.data.payload.records;
+      console.log(tokens);
+      if (tokens && tokens.length > 0) {
+        tokens.forEach(async (token, i) => {
+          let txn = await web3.eth.getTransactionReceipt(token.transactionHash);
+          txn.value = token.amount;
+          txn.timeStamp = token.timestamp;
+          console.log(txn);
+          txns.push(txn);
+          if (tokens.length === txns.length) {
+            txns.sort(function(a, b) {
+              if (a.timeStamp < b.timeStamp) return 1;
+              if (a.timeStamp > b.timeStamp) return -1;
+              return 0;
+            });
+            await this.setState({
+              token: txns,
+              load_status: txns.length > 0 ? "" : "No Transfers Found!!!",
+              bool: false
+            });
+          }
+        });
+      } else {
+        await this.setState({
+          token: txns,
+          load_status: txns.length > 0 ? "" : "No Transfers Found!!!",
+          bool: false
+        });
+      }
       //console.log(this.state.token);
     }
   }
@@ -48,7 +113,7 @@ class NewHistory extends Component {
       });
       return this.props.token !== nextProps.token;
     } else {
-      return true;
+      return false;
     }
   }
   toggleCollapse = collapseID => () =>
@@ -76,8 +141,8 @@ class NewHistory extends Component {
   };
 
   render() {
-    const {decimals} = this.props;
-    return (this.state.token && this.state.token.length>0) ? (
+    const { decimals } = this.props;
+    return this.state.token && this.state.token.length > 0 ? (
       <div className="history">
         {this.state.token.map(tokenDetail => {
           return (
@@ -99,14 +164,18 @@ class NewHistory extends Component {
                         this.props.account.address
                       )}
                     </span>
-                    <span className="confirmedBox">
-                      {tokenDetail.confirmations} confirmations
+                    <span
+                      className="confirmedBox"
+                      style={{ color: tokenDetail.status ? "green" : "red" }}
+                    >
+                      {tokenDetail.status ? "Success" : "Failed"}
                     </span>
                   </span>
                 </div>
                 <div className="tokenAmount valuePositioning">
                   <span style={{ fontWeight: "900" }}>
-                    {(tokenDetail.value/(10 ** decimals)).toFixed(3)} {tokenDetail.tokenSymbol}
+                    {(tokenDetail.value / 10 ** decimals).toFixed(3)}{" "}
+                    {tokenDetail.tokenSymbol}
                   </span>
                   {/*<span>{tokenDetail.amountUSD} USD</span>*/}
                   <span>
@@ -183,7 +252,7 @@ class NewHistory extends Component {
         <br />
         <br />
         <br />
-        <strong> No transactions found! </strong>
+        <strong> {this.state.load_status} </strong>
       </p>
     );
   }

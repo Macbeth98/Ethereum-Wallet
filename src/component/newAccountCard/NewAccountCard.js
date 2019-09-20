@@ -7,6 +7,7 @@ import NewHistory from "../NewHistory/NewHistory";
 
 class NewAccountCard extends Component {
   render() {
+    const tok_address = "0xb552c78e84f684fd3cd8dd97d73ff9d006d991a0";
     return (
       <div>
         <ExtNavBar />
@@ -16,13 +17,24 @@ class NewAccountCard extends Component {
             name={this.props.name}
             account={this.props.account}
             token={this.props.token}
+            decimals={
+              this.props.token.decimals.length > 0 &&
+              this.props.token.address !== tok_address
+                ? parseInt(this.props.token.decimals)
+                : 0
+            }
           />
           <span style={{ paddingLeft: "12px", color: "#888888" }}>History</span>
           <NewHistory
             name={this.props.name}
             account={this.props.account}
             token={this.props.token}
-            decimals={this.props.token.decimals.length>0? parseInt(this.props.token.decimals): 0 }
+            decimals={
+              this.props.token.decimals.length > 0 &&
+              this.props.token.address !== tok_address
+                ? parseInt(this.props.token.decimals)
+                : 0
+            }
           />
         </div>
       </div>

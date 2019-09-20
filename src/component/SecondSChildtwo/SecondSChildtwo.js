@@ -23,15 +23,16 @@ class SecondSChildtwo extends Component {
       // );
       //
 
-
       let res = await axios({
-                      method:'get',
-                      url: `https://web3api.io/api/v1/addresses/${this.props.account.address}/tokens`,
-                      headers: { 'x-api-key': "UAK61b04dd723b9101beaa7092fbd848e0f" }
-                    })
-      if(res.data.status){
+        method: "get",
+        url: `https://web3api.io/api/v1/addresses/${
+          this.props.account.address
+        }/tokens`,
+        headers: { "x-api-key": "UAKa847d22b077024a71df262511733a446" }
+      });
+      if (res.data.status) {
         await this.setState({
-          tokens: res.data.payload? res.data.payload.records: [],
+          tokens: res.data.payload ? res.data.payload.records : [],
           bool: false
         });
       }
@@ -83,7 +84,14 @@ class SecondSChildtwo extends Component {
               >
                 <div className="tokenValue">
                   <h4>
-                    {token.decimals.length>0? (token.amount/(10 ** parseInt(token.decimals))).toFixed(3) : token.amount} {token.symbol}
+                    {(token.decimals.length &&
+                      token.address !==
+                        "0xb552c78e84f684fd3cd8dd97d73ff9d006d991a0") > 0
+                      ? (token.amount / 10 ** parseInt(token.decimals)).toFixed(
+                          3
+                        )
+                      : token.amount}{" "}
+                    {token.symbol}
                   </h4>
                 </div>
               </Link>
