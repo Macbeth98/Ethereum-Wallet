@@ -27,7 +27,7 @@ class NewDetailView extends Component {
           <h4 className="textStyle">{this.props.token.name}</h4>
           <img src={Ethereum} alt="eth" />
           <h4 className="textStyle">
-            {token.decimals.length>0? (this.props.token.balance/(10 ** parseInt(token.decimals))).toFixed(3): token.balance} {this.props.token.symbol}
+            {token.decimals.length>0? (this.props.token.amount/(10 ** parseInt(token.decimals))).toFixed(3): token.amount} {this.props.token.symbol}
           </h4>
           <div className="btn-group">
             <Link

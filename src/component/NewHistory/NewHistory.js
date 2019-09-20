@@ -30,7 +30,7 @@ class NewHistory extends Component {
       let res = await axios.get(
         `https://blockscout.com/eth/mainnet/api?module=account&action=tokentx&address=${
           this.props.account.address
-        }&contractaddress=${this.props.token.contractAddress}&sort=desc`
+        }&contractaddress=${this.props.token.address}&sort=desc`
       );
       //console.log(res.data.result);
       await this.setState({
@@ -77,7 +77,7 @@ class NewHistory extends Component {
 
   render() {
     const {decimals} = this.props;
-    return this.state.token[0] ? (
+    return (this.state.token && this.state.token.length>0) ? (
       <div className="history">
         {this.state.token.map(tokenDetail => {
           return (

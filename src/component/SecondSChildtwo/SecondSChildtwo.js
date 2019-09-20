@@ -16,15 +16,25 @@ class SecondSChildtwo extends Component {
   async componentDidUpdate() {
     if (this.state.bool) {
       //console.log(this.props.account.address);
-      let res = await axios.get(
-        `https://blockscout.com/eth/mainnet/api?module=account&action=tokenlist&address=${
-          this.props.account.address
-        }`
-      );
-      await this.setState({
-        tokens: res.data.result,
-        bool: false
-      });
+      // let res = await axios.get(
+      //   `https://blockscout.com/eth/mainnet/api?module=account&action=tokenlist&address=${
+      //     this.props.account.address
+      //   }`
+      // );
+      //
+
+
+      let res = await axios({
+                      method:'get',
+                      url: `https://web3api.io/api/v1/addresses/${this.props.account.address}/tokens`,
+                      headers: { 'x-api-key': "UAK61b04dd723b9101beaa7092fbd848e0f" }
+                    })
+      if(res.data.status){
+        await this.setState({
+          tokens: res.data.payload? res.data.payload.records: [],
+          bool: false
+        });
+      }
     }
   }
 
@@ -73,7 +83,7 @@ class SecondSChildtwo extends Component {
               >
                 <div className="tokenValue">
                   <h4>
-                    {token.decimals.length>0? (token.balance/(10 ** parseInt(token.decimals))).toFixed(3) : token.balance} {token.symbol}
+                    {token.decimals.length>0? (token.amount/(10 ** parseInt(token.decimals))).toFixed(3) : token.amount} {token.symbol}
                   </h4>
                 </div>
               </Link>
