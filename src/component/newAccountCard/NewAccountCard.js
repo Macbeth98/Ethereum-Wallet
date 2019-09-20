@@ -22,6 +22,7 @@ class NewAccountCard extends Component {
             name={this.props.name}
             account={this.props.account}
             token={this.props.token}
+            decimals={this.props.token.decimals.length>0? parseInt(this.props.token.decimals): 0 }
           />
         </div>
       </div>

@@ -21,7 +21,6 @@ class SecondSChildtwo extends Component {
           this.props.account.address
         }`
       );
-      //console.log(res.data);
       await this.setState({
         tokens: res.data.result,
         bool: false
@@ -74,7 +73,7 @@ class SecondSChildtwo extends Component {
               >
                 <div className="tokenValue">
                   <h4>
-                    {token.balance} {token.symbol}
+                    {token.decimals.length>0? (token.balance/(10 ** parseInt(token.decimals))).toFixed(3) : token.balance} {token.symbol}
                   </h4>
                 </div>
               </Link>

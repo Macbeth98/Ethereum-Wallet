@@ -4,18 +4,28 @@ import "./sent.css";
 import { Link, goBack } from "route-lite";
 import avatar from "../../Image/profile.svg";
 import SendTokensConfirm from "../SendTokensConfirm/SendTokensConfirm";
+import web3 from "../Web3/Web3";
 
 class Send_Tokens extends React.Component {
   state = {
     tokenValue: "",
-    to: ""
+    to: "",
+    msg: ""
   };
   handleChange = e => {
     this.setState({
       [e.target.id]: e.target.value
     });
   };
+
+  handleETHChange = (e)=>{
+    this.setState({to: e.target.value});
+    let valid = web3.utils.isAddress(e.target.value);
+    if(valid) this.setState({msg: ""})
+    else this.setState({msg: "Not a Valid Ethereum Address"})
+  }
   render() {
+    const {decimals} = this.props;
     let place = `0 ${this.props.token.symbol}`;
     return (
       <div>
@@ -53,7 +63,7 @@ class Send_Tokens extends React.Component {
                 {this.props.account.address}
               </span>
               <span style={{ display: "block" }}>
-                {this.props.token.balance} {this.props.token.symbol}
+                {(this.props.token.balance/(10 ** decimals))} {this.props.token.symbol}
               </span>
               <span style={{ display: "block" }}>0 TIME</span>
             </div>
@@ -66,9 +76,9 @@ class Send_Tokens extends React.Component {
                 className="form-control customSelectForm"
                 id="to"
                 placeholder="To :"
-                onChange={this.handleChange}
-              />
-
+                onChange={this.handleETHChange}
+              /> <br/>
+            <span style={{color: "red"}}>{this.props.msg}</span>
               <div
                 className="well"
                 style={{
@@ -152,13 +162,15 @@ class Send_Tokens extends React.Component {
                   to: this.state.to,
                   amt: this.state.tokenValue,
                   priv_key: this.props.account.privateKey,
-                  tok_address: this.props.token.contractAddress
+                  tok_address: this.props.token.contractAddress,
+                  decimals: this.props.decimals
                 }}
               >
                 <button
                   type="submit"
                   className=" btn btn-primary importButton"
                   style={{ marginRight: "0" }}
+                  disabled={this.state.msg.length>0? true: false}
                 >
                   Next
                 </button>

@@ -76,6 +76,7 @@ class NewHistory extends Component {
   };
 
   render() {
+    const {decimals} = this.props;
     return this.state.token[0] ? (
       <div className="history">
         {this.state.token.map(tokenDetail => {
@@ -105,7 +106,7 @@ class NewHistory extends Component {
                 </div>
                 <div className="tokenAmount valuePositioning">
                   <span style={{ fontWeight: "900" }}>
-                    {tokenDetail.value} {tokenDetail.tokenSymbol}
+                    {(tokenDetail.value/(10 ** decimals)).toFixed(3)} {tokenDetail.tokenSymbol}
                   </span>
                   {/*<span>{tokenDetail.amountUSD} USD</span>*/}
                   <span>

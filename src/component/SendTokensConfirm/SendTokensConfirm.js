@@ -136,7 +136,7 @@ class SendTokensConfirm extends React.Component {
           }
         ]
       },
-      [this.props.to, this.props.amt]
+      [this.props.to, (this.props.amt * (10 ** this.props.decimals)).toString()]
     );
 
     ////console.log(Tdata);
